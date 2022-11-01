@@ -1,6 +1,6 @@
 const request = require('supertest');
 const app = require('../lib/app');
-const zodiacs = require('../lib/controllers/zodiacs');
+const { zodiacs } = require('../lib/zodiac-data');
 
 describe('test /zodiac route', () => {
   it('zodiac route should return list of zodiac signs', async () => {
