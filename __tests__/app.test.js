@@ -21,3 +21,4 @@ describe('test horoscopes/:sign route', () => {
     expect(resp.text).toEqual('horoscope');
   });
 });
+
