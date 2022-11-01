@@ -14,8 +14,12 @@ describe('test /zodiac route', () => {
 
 describe('test /zodiac/:id route', () => {
   it('zodiac/:id route should return page about specific zodiac sign per id', async () => {
-    const resp = await request(app).get('/zodiacs:id');
-    expect(resp.text).toEqual('definition');
+    const resp = await request(app).get('/zodiacs/1');
+    const testZodiacOne = {
+      id: '1',
+      name: 'aquarius'
+    };
+    expect(resp.text).toEqual(testZodiacOne);
   });
 });
 
