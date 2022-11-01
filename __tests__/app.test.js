@@ -1,16 +1,20 @@
 const request = require('supertest');
 const app = require('../lib/app');
+const zodiacs = require('../lib/controllers/zodiacs');
 
 describe('test /zodiac route', () => {
-  it('zodiac route should return list of links to each zodiac sign', async () => {
-    const resp = await request(app).get('/zodiac');
-    expect(resp.text).toEqual('libra');
+  it('zodiac route should return list of zodiac signs', async () => {
+    const resp = await request(app).get('/zodiacs');
+    const expected = zodiacs.map((item) => {
+      return { id: item.id, name: item.name };
+    });
+    expect(resp.body).toEqual(expected);
   });
 });
 
 describe('test /zodiac/:id route', () => {
   it('zodiac/:id route should return page about specific zodiac sign per id', async () => {
-    const resp = await request(app).get('/zodiac:id');
+    const resp = await request(app).get('/zodiacs:id');
     expect(resp.text).toEqual('definition');
   });
 });
