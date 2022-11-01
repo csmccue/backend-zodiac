@@ -19,14 +19,14 @@ describe('test /zodiac/:id route', () => {
       id: '1',
       name: 'aquarius'
     };
-    expect(resp.text).toEqual(testZodiacOne);
+    expect(resp.body).toEqual(testZodiacOne);
   });
 });
 
-describe('test horoscopes/:sign route', () => {
-  it('horoscopes/:sign should return page about specific horoscope of that day given the sign chosen', async () => {
-    const resp = await request(app).get('/horoscope/:sign');
-    expect(resp.text).toEqual('horoscope');
-  });
-});
+// describe('test horoscopes/:sign route', () => {
+//   it('horoscopes/:sign should return page about specific horoscope of that day given the sign chosen', async () => {
+//     const resp = await request(app).get('/horoscope/:sign');
+//     expect(resp.text).toEqual('horoscope');
+//   });
+// });
 
